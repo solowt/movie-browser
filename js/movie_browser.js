@@ -1,4 +1,3 @@
-$("#movie-select").hide();
 $("#search").on("submit", function(e){
 
   e.preventDefault();
@@ -12,7 +11,8 @@ function getAPI(keyword){
     type: "get",
     dataType: "json"
   }).done(function(response){
-    $("#movie-select").empty() //empty the select field before populating it
+    $("#movie-select").children().slice(1).remove() //empty the select field before populating it
+    //$("#movie-select").children()[0].css("Value")="Select a movie ("+keyword+")"
     for (var i=0; i<response.Search.length; i++){
       $("#movie-select").append($('<option id='+response.Search[i].imdbID+'>'+response.Search[i].Title+'</option>'))
     }
