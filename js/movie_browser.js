@@ -1,5 +1,4 @@
-// API Docs at:
-// http://www.omdbapi.com
+$("#movie-select").hide();
 $("#search").on("submit", function(e){
 
   e.preventDefault();
@@ -18,6 +17,7 @@ function getAPI(keyword){
       $("#movie-select").append($('<option id='+response.Search[i].imdbID+'>'+response.Search[i].Title+'</option>'))
     }
     addListener();
+    $("#movie-select").show();
   })
 }
 function addListener(){
